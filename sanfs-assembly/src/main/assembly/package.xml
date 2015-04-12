@@ -1,0 +1,46 @@
+<assembly>
+    <id>bin</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>false</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <unpack>false</unpack>
+        </dependencySet>
+    </dependencySets>
+
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/..</directory>
+            <outputDirectory>.</outputDirectory>
+            <includes>
+                <include>CHANGES.md</include>
+                <include>README.md</include>
+            </includes>
+            <fileMode>0644</fileMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/../bin</directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/../conf</directory>
+            <outputDirectory>conf</outputDirectory>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+
+        <fileSet>
+            <directory>${project.basedir}/../ico</directory>
+            <outputDirectory>ico</outputDirectory>
+        </fileSet>
+
+    </fileSets>
+</assembly>

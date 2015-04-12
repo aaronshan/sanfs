@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>sanfs-parent</artifactId>
+        <groupId>aaron.sanfs</groupId>
+        <version>${sanfs.version}</version>
+        <relativePath>..</relativePath>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>sanfs-assembly</artifactId>
+    <description>
+        Module that does project assembly only.
+    </description>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>aaron.sanfs</groupId>
+            <artifactId>sanfs-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>aaron.sanfs</groupId>
+            <artifactId>sanfs-client</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>aaron.sanfs</groupId>
+            <artifactId>sanfs-nameserver</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>aaron.sanfs</groupId>
+            <artifactId>sanfs-storageserver</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven.assembly.version}</version>
+                <configuration>
+                    <finalName>sanfs-${pom.version}</finalName>
+                    <skipAssembly>false</skipAssembly>
+                    <!--We do not want assembly attached; run on command-line explicitly
+                         if you want to do an assembly-->
+                    <attach>false</attach>
+                    <descriptors>
+                        <descriptor>${assembly.file}</descriptor>
+                    </descriptors>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
