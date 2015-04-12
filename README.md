@@ -22,7 +22,7 @@ Name Server is responsible for:
 ###4) sanfs-storageserver
 Storage Server can communicate with name server, deal with call from name server. It also handle client calls, transport file streams. Finally, StorageServers inter-communicate for duplication and load balance.
 
-###2）sanfs-assembly
+###5）sanfs-assembly
 Build the project to compress package. Finally, it will generator a file of suffix of tar.gz
 
 ##3.  Compile
